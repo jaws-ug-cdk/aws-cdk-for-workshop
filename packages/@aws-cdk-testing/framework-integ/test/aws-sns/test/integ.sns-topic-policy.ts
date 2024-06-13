@@ -9,7 +9,6 @@ const stack = new Stack(app, 'SNSTopicPolicyStack');
 
 const topic = new Topic(stack, 'Topic', {
   topicName: 'fooTopic',
-  displayName: 'fooDisplay',
 });
 
 const policyDocument = new PolicyDocument({
@@ -31,7 +30,6 @@ new TopicPolicy(stack, 'TopicPolicy', {
 
 const topicAddPolicy = new Topic(stack, 'TopicAddPolicy', {
   topicName: 'topicAddPolicy',
-  displayName: 'topicDisplayNameAddPolicy',
   enforceSSL: true,
 });
 

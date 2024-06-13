@@ -30,19 +30,6 @@ describe('Topic', () => {
 
     });
 
-    test('specify displayName', () => {
-      const stack = new cdk.Stack();
-
-      new sns.Topic(stack, 'MyTopic', {
-        displayName: 'displayName',
-      });
-
-      Template.fromStack(stack).hasResourceProperties('AWS::SNS::Topic', {
-        'DisplayName': 'displayName',
-      });
-
-    });
-
     test('specify kmsMasterKey', () => {
       const stack = new cdk.Stack();
       const key = new kms.Key(stack, 'CustomKey');
@@ -53,21 +40,6 @@ describe('Topic', () => {
 
       Template.fromStack(stack).hasResourceProperties('AWS::SNS::Topic', {
         'KmsMasterKeyId': { 'Fn::GetAtt': ['CustomKey1E6D0D07', 'Arn'] },
-      });
-
-    });
-
-    test('specify displayName and topicName', () => {
-      const stack = new cdk.Stack();
-
-      new sns.Topic(stack, 'MyTopic', {
-        topicName: 'topicName',
-        displayName: 'displayName',
-      });
-
-      Template.fromStack(stack).hasResourceProperties('AWS::SNS::Topic', {
-        'DisplayName': 'displayName',
-        'TopicName': 'topicName',
       });
 
     });

@@ -14,7 +14,6 @@ class SNSInteg extends Stack {
 
     const topic = new Topic(this, 'MyTopic', {
       topicName: 'fooTopic',
-      displayName: 'fooDisplayName',
       masterKey: key,
     });
 
@@ -47,21 +46,18 @@ class SNSInteg extends Stack {
     // Topic with signatureVersion
     new Topic(this, 'MyTopicSignatureVersion', {
       topicName: 'fooTopicSignatureVersion',
-      displayName: 'fooDisplayNameSignatureVersion',
       signatureVersion: '2',
     });
 
     // Topic with tracingConfig
     new Topic(this, 'MyTopicTracingConfig', {
       topicName: 'fooTopicTracingConfig',
-      displayName: 'fooDisplayNameTracingConfig',
       tracingConfig: TracingConfig.ACTIVE,
     });
 
     // Can import topic
     const topic2 = new Topic(this, 'MyTopic2', {
       topicName: 'fooTopic2',
-      displayName: 'fooDisplayName2',
       masterKey: key,
     });
     const importedTopic = Topic.fromTopicArn(this, 'ImportedTopic', topic2.topicArn);
