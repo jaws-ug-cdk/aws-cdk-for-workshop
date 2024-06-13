@@ -31,6 +31,17 @@ const topic = new sns.Topic(this, 'Topic', {
 
 Note that FIFO topics require a topic name to be provided. The required `.fifo` suffix will be automatically generated and added to the topic name if it is not explicitly provided.
 
+## Display Name
+
+You can set a display name for the topic.
+To set a display name, use the `displayName` property:
+
+```ts
+const topic = new sns.Topic(this, 'Topic', {
+  displayName: 'MyDisplayName',
+});
+```
+
 ## Subscriptions
 
 Various subscriptions can be added to the topic by calling the
