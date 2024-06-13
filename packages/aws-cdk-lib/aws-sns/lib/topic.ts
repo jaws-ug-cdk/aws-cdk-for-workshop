@@ -10,6 +10,13 @@ import { ArnFormat, Lazy, Names, Stack, Token } from '../../core';
  */
 export interface TopicProps {
   /**
+   * A developer-defined string that can be used to identify this SNS topic.
+   *
+   * @default None
+   */
+  readonly displayName?: string;
+
+  /**
    * A name for the topic.
    *
    * If you don't specify a name, AWS CloudFormation generates a unique
@@ -300,6 +307,7 @@ export class Topic extends TopicBase {
       signatureVersion: props.signatureVersion,
       deliveryStatusLogging: Lazy.any({ produce: () => this.renderLoggingConfigs() }, { omitEmptyArray: true }),
       tracingConfig: props.tracingConfig,
+      displayName: props.displayName,
     });
 
     this.topicArn = this.getResourceArnAttribute(resource.ref, {
