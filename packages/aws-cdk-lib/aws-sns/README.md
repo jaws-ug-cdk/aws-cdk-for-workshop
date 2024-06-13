@@ -4,9 +4,7 @@
 Add an SNS Topic to your stack:
 
 ```ts
-const topic = new sns.Topic(this, 'Topic', {
-  displayName: 'Customer subscription topic',
-});
+const topic = new sns.Topic(this, 'Topic');
 ```
 
 Add a FIFO SNS topic with content-based de-duplication to your stack:
@@ -14,7 +12,6 @@ Add a FIFO SNS topic with content-based de-duplication to your stack:
 ```ts
 const topic = new sns.Topic(this, 'Topic', {
   contentBasedDeduplication: true,
-  displayName: 'Customer subscription topic',
   fifo: true,
 });
 ```
