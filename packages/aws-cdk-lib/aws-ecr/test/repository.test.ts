@@ -155,17 +155,6 @@ describe('repository', () => {
     }).toThrow(/A tag pattern cannot contain more than four wildcard characters \(\*\), pattern: abc\*d\*e\*f\*g\*h, counts: 5/);
   });
 
-  test('image tag mutability can be set', () => {
-    // GIVEN
-    const stack = new cdk.Stack();
-    new ecr.Repository(stack, 'Repo', { imageTagMutability: ecr.TagMutability.IMMUTABLE });
-
-    // THEN
-    Template.fromStack(stack).hasResourceProperties('AWS::ECR::Repository', {
-      ImageTagMutability: 'IMMUTABLE',
-    });
-  });
-
   test('emptyOnDelete can be set', () => {
     // GIVEN
     const stack = new cdk.Stack();

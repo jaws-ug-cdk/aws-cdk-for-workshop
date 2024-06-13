@@ -554,13 +554,6 @@ export interface RepositoryProps {
   readonly imageScanOnPush?: boolean;
 
   /**
-   * The tag mutability setting for the repository. If this parameter is omitted, the default setting of MUTABLE will be used which will allow image tags to be overwritten.
-   *
-   *  @default TagMutability.MUTABLE
-   */
-  readonly imageTagMutability?: TagMutability;
-
-  /**
    * Whether all images should be automatically deleted when the repository is
    * removed from the stack or when the stack is deleted.
    *
@@ -712,7 +705,6 @@ export class Repository extends RepositoryBase {
       repositoryPolicyText: Lazy.any({ produce: () => this.policyDocument }),
       lifecyclePolicy: Lazy.any({ produce: () => this.renderLifecyclePolicy() }),
       imageScanningConfiguration: props.imageScanOnPush !== undefined ? { scanOnPush: props.imageScanOnPush } : undefined,
-      imageTagMutability: props.imageTagMutability || undefined,
       encryptionConfiguration: this.parseEncryption(props),
       emptyOnDelete: props.emptyOnDelete,
     });
