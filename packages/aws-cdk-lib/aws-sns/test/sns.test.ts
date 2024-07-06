@@ -729,6 +729,17 @@ describe('Topic', () => {
     expect(() => app.synth()).toThrow(/Success feedback sample rate must be an integer between 0 and 100/);
   });
 
+  test('specify displayName', () => {
+    const stack = new cdk.Stack();
+  
+    new sns.Topic(stack, 'MyTopic', {
+       displayName: 'MyDisplayName',
+    });
+  
+    Template.fromStack(stack).hasResourceProperties('AWS::SNS::Topic', {
+      DisplayName: 'MyDisplayName',
+    });
+  });
   describe('message retention period', () => {
     test('specify message retention period in days', () => {
       // GIVEN
