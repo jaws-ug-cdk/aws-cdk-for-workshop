@@ -772,6 +772,19 @@ describe('Topic', () => {
         }),
       ).toThrow('`messageRetentionPeriodInDays` is only valid for FIFO SNS topics');
     });
+
+    test('specify displayName', () => {
+      const stack = new cdk.Stack();
+    
+      new sns.Topic(stack, 'MyTopic', {
+         displayName: 'MyDisplayName',
+      });
+    
+      Template.fromStack(stack).hasResourceProperties('AWS::SNS::Topic', {
+        DisplayName: 'MyDisplayName',
+      });
+    });
+
   });
 
   describe('tracingConfig', () => {
