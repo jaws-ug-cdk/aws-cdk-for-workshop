@@ -9,6 +9,18 @@ import * as sns from '../lib';
 
 describe('Topic', () => {
   describe('topic tests', () => {
+    test('specify displayName', () => {
+      const stack = new cdk.Stack();
+    
+      new sns.Topic(stack, 'MyTopic', {
+         displayName: 'MyDisplayName',
+      });
+    
+      Template.fromStack(stack).hasResourceProperties('AWS::SNS::Topic', {
+        DisplayName: 'MyDisplayName',
+      });
+    });
+
     test('all defaults', () => {
       const stack = new cdk.Stack();
       new sns.Topic(stack, 'MyTopic');
