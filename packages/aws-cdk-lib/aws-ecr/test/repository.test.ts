@@ -146,11 +146,11 @@ describe('repository', () => {
 
   test('specify imageTagMutability', () => {
     const stack = new cdk.Stack();
-  
+
     new ecr.Repository(stack, 'MyRepository', {
-       imageTagMutability: ecr.ImageTagMutability.IMMUTABLE,
+      imageTagMutability: ecr.ImageTagMutability.IMMUTABLE,
     });
-  
+
     Template.fromStack(stack).hasResourceProperties('AWS::ECR::Repository', {
       ImageTagMutability: 'IMMUTABLE',
     });

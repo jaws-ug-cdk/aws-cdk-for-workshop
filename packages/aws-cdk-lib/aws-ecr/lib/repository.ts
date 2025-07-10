@@ -35,7 +35,7 @@ export enum ImageTagMutability {
   /**
    * all image tags within the repository will be immutable which will prevent them from being overwritten.
    */
-  IMMUTABLE = 'IMMUTABLE'
+  IMMUTABLE = 'IMMUTABLE',
 }
 
 /**
