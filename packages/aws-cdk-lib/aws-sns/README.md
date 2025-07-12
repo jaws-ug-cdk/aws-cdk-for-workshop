@@ -331,3 +331,4 @@ const topic = new sns.Topic(this, 'MyTopic', {
   tracingConfig: sns.TracingConfig.ACTIVE,
 });
 ```
+
