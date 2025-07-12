@@ -88,6 +88,16 @@ export interface TopicProps {
    * @default TracingConfig.PASS_THROUGH
    */
   readonly tracingConfig?: TracingConfig;
+
+  /**
+   * The display name to use for an Amazon SNS topic with SMS subscriptions. 
+   * The display name must be maximum 100 characters long, including hyphens (-), underscores (_), spaces, and tabs.
+   * 
+   * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-sns-topic.html#cfn-sns-topic-displayname
+   * 
+   * @default- no display name
+   */
+  readonly displayName?: string;
 }
 
 /**
@@ -300,6 +310,7 @@ export class Topic extends TopicBase {
       signatureVersion: props.signatureVersion,
       deliveryStatusLogging: Lazy.any({ produce: () => this.renderLoggingConfigs() }, { omitEmptyArray: true }),
       tracingConfig: props.tracingConfig,
+      displayName: props.displayName
     });
 
     this.topicArn = this.getResourceArnAttribute(resource.ref, {
