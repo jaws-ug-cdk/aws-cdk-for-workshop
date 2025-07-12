@@ -119,6 +119,17 @@ myTopic.addSubscription(new subscriptions.LambdaSubscription(fn, {
 }));
 ```
 
+## Display Name
+
+You can set a display name for the topic.
+To set a display name, use the `displayName` property:
+
+```ts
+const topic = new sns.Topic(this, 'Topic', {
+  displayName: 'MyDisplayName',
+});
+```
+
 ### Example of Firehose Subscription
 
 ```ts
