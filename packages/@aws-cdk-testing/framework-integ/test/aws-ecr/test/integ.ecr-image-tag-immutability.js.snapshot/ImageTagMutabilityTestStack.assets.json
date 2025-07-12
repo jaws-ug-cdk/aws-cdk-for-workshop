@@ -1,0 +1,19 @@
+{
+  "version": "36.0.0",
+  "files": {
+    "4fde99354c6b14e7603c8cb52034301723f623f4d45eebf984e20b7d9de1086f": {
+      "source": {
+        "path": "ImageTagMutabilityTestStack.template.json",
+        "packaging": "file"
+      },
+      "destinations": {
+        "current_account-current_region": {
+          "bucketName": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}",
+          "objectKey": "4fde99354c6b14e7603c8cb52034301723f623f4d45eebf984e20b7d9de1086f.json",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-file-publishing-role-${AWS::AccountId}-${AWS::Region}"
+        }
+      }
+    }
+  },
+  "dockerImages": {}
+}

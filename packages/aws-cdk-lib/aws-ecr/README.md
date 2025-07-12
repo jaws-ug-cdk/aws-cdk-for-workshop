@@ -220,3 +220,13 @@ repo.onEvent('OnEventTargetLambda', {
   target: new LambdaFunction(lambdaHandler),
 });
 ```
+
+### Image tab immutability
+
+You can set tag immutability on images in our repository using the `imageTagMutability` construct prop.
+
+```ts
+new ecr.Repository(this, 'Repo', {
+  imageTagMutability: ecr.ImageTagMutability.IMMUTABLE,
+});
+```
