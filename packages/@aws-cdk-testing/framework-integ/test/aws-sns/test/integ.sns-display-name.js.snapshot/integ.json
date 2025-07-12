@@ -1,0 +1,12 @@
+{
+  "version": "36.0.0",
+  "testCases": {
+    "SnsTest/DefaultTest": {
+      "stacks": [
+        "DisplayNameTopicTestStack"
+      ],
+      "assertionStack": "SnsTest/DefaultTest/DeployAssert",
+      "assertionStackName": "SnsTestDefaultTestDeployAssert4EEDA1ED"
+    }
+  }
+}
