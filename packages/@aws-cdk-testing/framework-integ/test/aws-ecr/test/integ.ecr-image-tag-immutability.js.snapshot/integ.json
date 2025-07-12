@@ -1,0 +1,12 @@
+{
+  "version": "36.0.0",
+  "testCases": {
+    "EcrTest/DefaultTest": {
+      "stacks": [
+        "ImageTagMutabilityTestStack"
+      ],
+      "assertionStack": "EcrTest/DefaultTest/DeployAssert",
+      "assertionStackName": "EcrTestDefaultTestDeployAssert704C8CA0"
+    }
+  }
+}
