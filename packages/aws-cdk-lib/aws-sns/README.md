@@ -331,3 +331,14 @@ const topic = new sns.Topic(this, 'MyTopic', {
   tracingConfig: sns.TracingConfig.ACTIVE,
 });
 ```
+
+## Display Name
+
+You can set a display name for the topic.
+To set a display name, use the `displayName` property:
+
+```ts
+const topic = new sns.Topic(this, 'Topic', {
+  displayName: 'MyDisplayName',
+});
+\```
