@@ -155,6 +155,28 @@ describe('Topic', () => {
         signatureVersion: '3',
       })).toThrow(/signatureVersion must be "1" or "2", received: "3"/);
     });
+
+    test('specify displayName', () => {
+      const stack = new cdk.Stack();
+
+      new sns.Topic(stack, 'MyTopic', {
+        displayName: 'My Alert Topic',
+      });
+
+      Template.fromStack(stack).hasResourceProperties('AWS::SNS::Topic', {
+        DisplayName: 'My Alert Topic',
+      });
+    });
+
+    test('displayName is absent when not specified', () => {
+      const stack = new cdk.Stack();
+
+      new sns.Topic(stack, 'MyTopic');
+
+      Template.fromStack(stack).hasResourceProperties('AWS::SNS::Topic', {
+        DisplayName: Match.absent(),
+      });
+    });
   });
 
   test('can add a policy to the topic', () => {

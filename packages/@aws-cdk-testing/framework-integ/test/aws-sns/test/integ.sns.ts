@@ -61,6 +61,12 @@ class SNSInteg extends Stack {
       tracingConfig: TracingConfig.ACTIVE,
     });
 
+    // Topic with displayName
+    new Topic(this, 'MyTopicDisplayName', {
+      topicName: 'fooTopicDisplayName',
+      displayName: 'My Display Name',
+    });
+
     // Can import topic
     const topic2 = new Topic(this, 'MyTopic2', {
       topicName: 'fooTopic2',
