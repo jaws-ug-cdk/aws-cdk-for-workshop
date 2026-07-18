@@ -30,6 +30,17 @@ export interface TopicProps {
   readonly topicName?: string;
 
   /**
+   * A display name to use for the topic when it is used as the sender
+   * for SMS subscriptions.
+   *
+   * The display name must be maximum 100 characters long, including hyphens (-),
+   * underscores (_), spaces, and tabs.
+   *
+   * @default - no display name
+   */
+  readonly displayName?: string;
+
+  /**
    * A KMS Key, either managed by this CDK app, or imported.
    *
    * @default None
@@ -364,6 +375,7 @@ export class Topic extends TopicBase {
       archivePolicy: props.messageRetentionPeriodInDays ? {
         MessageRetentionPeriod: props.messageRetentionPeriodInDays,
       } : undefined,
+      displayName: props.displayName,
       topicName: cfnTopicName,
       kmsMasterKeyId: props.masterKey && props.masterKey.keyArn,
       contentBasedDeduplication: props.contentBasedDeduplication,

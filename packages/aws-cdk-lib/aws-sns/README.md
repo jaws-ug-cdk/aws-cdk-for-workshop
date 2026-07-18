@@ -29,6 +29,15 @@ const topic = new sns.Topic(this, 'Topic', {
 });
 ```
 
+Add an SNS Topic with a display name. The display name is used as the sender name
+when messages are sent to SMS subscriptions:
+
+```ts
+const topic = new sns.Topic(this, 'Topic', {
+  displayName: 'My SMS Topic',
+});
+```
+
 Note that FIFO topics require a topic name to be provided. The required `.fifo` suffix will be automatically generated and added to the topic name if it is not explicitly provided.
 
 ## Subscriptions
