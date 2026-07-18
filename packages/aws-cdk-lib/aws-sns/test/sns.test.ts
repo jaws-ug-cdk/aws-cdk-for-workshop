@@ -44,6 +44,28 @@ describe('Topic', () => {
       });
     });
 
+    test('specify displayName', () => {
+      const stack = new cdk.Stack();
+
+      new sns.Topic(stack, 'MyTopic', {
+        displayName: 'My SNS Topic',
+      });
+
+      Template.fromStack(stack).hasResourceProperties('AWS::SNS::Topic', {
+        'DisplayName': 'My SNS Topic',
+      });
+    });
+
+    test('displayName is absent by default', () => {
+      const stack = new cdk.Stack();
+
+      new sns.Topic(stack, 'MyTopic');
+
+      Template.fromStack(stack).hasResourceProperties('AWS::SNS::Topic', {
+        'DisplayName': Match.absent(),
+      });
+    });
+
     test('specify kmsMasterKey', () => {
       const stack = new cdk.Stack();
       const key = new kms.Key(stack, 'CustomKey');
