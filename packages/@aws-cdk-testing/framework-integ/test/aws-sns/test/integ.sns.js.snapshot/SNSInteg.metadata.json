@@ -75,6 +75,14 @@
       }
     }
   ],
+  "/SNSInteg/MyTopicDisplayName": [
+    {
+      "type": "aws:cdk:analytics:construct",
+      "data": {
+        "topicName": "*"
+      }
+    }
+  ],
   "/SNSInteg/MyTopic2": [
     {
       "type": "aws:cdk:analytics:construct",
@@ -210,6 +218,12 @@
     {
       "type": "aws:cdk:logicalId",
       "data": "MyTopicTracingConfigE05AF123"
+    }
+  ],
+  "/SNSInteg/MyTopicDisplayName/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "MyTopicDisplayName46E3DA19"
     }
   ],
   "/SNSInteg/MyTopic2/Resource": [

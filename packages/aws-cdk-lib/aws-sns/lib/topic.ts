@@ -106,6 +106,18 @@ export interface TopicProps {
    * @default undefined - SNS default setting is FifoThroughputScope.TOPIC
    */
   readonly fifoThroughputScope?: FifoThroughputScope;
+
+  /**
+   * The display name to use for an Amazon SNS topic with SMS subscriptions.
+   *
+   * The display name must be maximum 100 characters long, including hyphens (-),
+   * underscores (_), spaces, and tabs.
+   *
+   * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-topic.html#cfn-sns-topic-displayname
+   *
+   * @default - no display name
+   */
+  readonly displayName?: string;
 }
 
 /**
@@ -365,6 +377,7 @@ export class Topic extends TopicBase {
         MessageRetentionPeriod: props.messageRetentionPeriodInDays,
       } : undefined,
       topicName: cfnTopicName,
+      displayName: props.displayName,
       kmsMasterKeyId: props.masterKey && props.masterKey.keyArn,
       contentBasedDeduplication: props.contentBasedDeduplication,
       fifoTopic: props.fifo,

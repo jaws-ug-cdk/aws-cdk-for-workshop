@@ -125,6 +125,13 @@
     "TracingConfig": "Active"
    }
   },
+  "MyTopicDisplayName46E3DA19": {
+   "Type": "AWS::SNS::Topic",
+   "Properties": {
+    "DisplayName": "My Display Name",
+    "TopicName": "fooTopicDisplayName"
+   }
+  },
   "MyTopic288CE2107": {
    "Type": "AWS::SNS::Topic",
    "Properties": {
