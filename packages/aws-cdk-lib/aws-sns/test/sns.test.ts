@@ -155,6 +155,18 @@ describe('Topic', () => {
         signatureVersion: '3',
       })).toThrow(/signatureVersion must be "1" or "2", received: "3"/);
     });
+
+    test('specify displayName', () => {
+      const stack = new cdk.Stack();
+
+      new sns.Topic(stack, 'MyTopic', {
+        displayName: 'My SNS Topic',
+      });
+
+      Template.fromStack(stack).hasResourceProperties('AWS::SNS::Topic', {
+        'DisplayName': 'My SNS Topic',
+      });
+    });
   });
 
   test('can add a policy to the topic', () => {

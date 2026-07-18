@@ -19,6 +19,16 @@ import { propertyInjectable } from '../../core/lib/prop-injectable';
  */
 export interface TopicProps {
   /**
+   * A developer-defined string that can be used to identify this SNS topic.
+   *
+   * The display name must be maximum 100 characters long, including hyphens (-),
+   * underscores (_), spaces, and tabs.
+   *
+   * @default - no display name
+   */
+  readonly displayName?: string;
+
+  /**
    * A name for the topic.
    *
    * If you don't specify a name, AWS CloudFormation generates a unique
@@ -364,6 +374,7 @@ export class Topic extends TopicBase {
       archivePolicy: props.messageRetentionPeriodInDays ? {
         MessageRetentionPeriod: props.messageRetentionPeriodInDays,
       } : undefined,
+      displayName: props.displayName,
       topicName: cfnTopicName,
       kmsMasterKeyId: props.masterKey && props.masterKey.keyArn,
       contentBasedDeduplication: props.contentBasedDeduplication,
